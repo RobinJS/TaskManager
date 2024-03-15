@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>My Task Manager</title>
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+	<div id="mainContainer">
+		<div id="titleBar">
+			<div id="appDragArea"></div>
+			<div id="closeAppBtn">X</div>
+		</div>
+		<div id="taskContainer">
+			<div id="emptyListInfo">Your task list is empty. Click "add" to create new task.</div>
+			<ul id="tasksList"></ul>
+		</div>
+
+		<div id="bottomBar">
+			<button id="addBtn">Add</button>
+		</div>
+	</div>
+	<script>window.$ = window.jQuery = require('./js/libs/jquery-1.10.2.js');</script>
+	<!-- <script type="text/javascript" src="./js/libs/jquery-1.10.2.js"></script> -->
+  	<script src="./js/libs/jquery-ui-1.10.4.custom.min.js"></script>
+  	<script type="text/javascript" src="./js/scripts.js"></script>
+  	<script>
+		var remote = require('electron').remote;
+		var menu = new remote.Menu;
+		var menuItem = remote.MenuItem;
+
+
+		menu.append(new menuItem({label: 'Copy', accelerator: 'CmdOrCtrl+C', role: 'copy'}));
+		menu.append(new menuItem({label: 'Paste', accelerator: 'CmdOrCtrl+V', role: 'paste', 'click': function(){
+			console.log( clipboard.readText() );
+		}}));
+		menu.append(new menuItem({label: 'Select All', accelerator: 'CmdOrCtrl+A', role: 'selectall'}));
+
+		window.addEventListener('contextmenu', (e) => {
+		  e.preventDefault();
+		  menu.popup(remote.getCurrentWindow());
+		}, false);
+</script>
+</body>
+</html>

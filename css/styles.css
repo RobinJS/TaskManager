@@ -1,0 +1,250 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Verdana;
+	background-color: #323232;
+	overflow: hidden;
+	-webkit-user-select: none;
+    min-width: 250px;
+    min-height: 250px;
+    cursor: default;
+}
+
+a {
+    pointer-events: none;
+    cursor: default;
+}
+
+#titleBar {
+    width: 100%;
+    height: 25px;
+    position: absolute;
+    background-color: #dfdfdf;
+    cursor: default;
+}
+
+#appDragArea {
+    -webkit-app-region: drag;
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    background-position-x: 5px;
+    background-position-y: 5px;
+    background-image: url('../img/drag_arrows.png');
+    background-repeat: no-repeat;
+    background-size: 14px;
+}
+
+#closeAppBtn {
+    -webkit-app-region: no-drag;
+    width: 54px;
+    height: 25px;
+    background: #FE8173;
+    background: -webkit-linear-gradient(top, #FE8173 0%,#CB2525 50%,#810000 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FE8173', endColorstr='#810000',GradientType=0 );
+    float: right;
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px black;
+    text-align: center;
+    line-height: 24px;
+}
+
+#closeAppBtn:hover {
+    background: -webkit-linear-gradient(top, #FE8173 0%,#CB2525 50%,#DFBDBD 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FE8173', endColorstr='#DFBDBD',GradientType=0 );
+}
+
+#closeAppBtn.closeAppBtnMouseDown {
+    background: -webkit-linear-gradient(top, #581109 0%,#CB2525 50%,#960303 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#581109', endColorstr='#960303',GradientType=0 );
+}
+
+#mainContainer {
+    top: 0;
+    left: 0;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+#taskContainer {
+    position: absolute;
+    bottom: 25px;
+    width: 100%;
+    overflow: auto;
+    top: 25px;
+}
+
+#taskContainer::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #FFCF00;
+}
+
+#taskContainer::-webkit-scrollbar
+{
+    width: 6px;
+    background-color: #F5F5F5;
+}
+
+#taskContainer::-webkit-scrollbar-thumb
+{
+    background-color: #000000;
+}
+
+#taskContainer::-webkit-scrollbar:horizontal
+{
+    display: none;
+}
+
+#bottomBar {
+	width: 100%;
+    height: 25px;
+    position: absolute;
+    bottom: 0px;
+}
+
+#emptyListInfo {
+	color: white;
+    position: absolute;
+    top: 45px;
+    max-width: 190px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    line-height: 25px;
+    text-align: center;
+}
+
+#addBtn {
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1dd243;
+    border-radius: 25px 25px 0 0;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#addBtn:active {
+	background-color: #21ad3e;
+}
+
+#tasksList {
+	list-style-type: none;
+    left: 0;
+    -webkit-margin-after: 0px;
+    -webkit-padding-start: 0px;
+    position: absolute;
+    width: 100%;
+    margin-top: 0;
+}
+
+#tasksList > li {
+    min-height: 35px;
+    font-size: 18px !important;
+    line-height: 35px;
+    background-color: #fcf9a2;
+    border: 1px solid black;
+    margin: 0px 0px;
+    border-radius: 4px;
+    overflow: hidden;
+    padding-left: 5px;
+    padding-right: 5px;
+    z-index: 1;
+}
+
+#tasksList > li.highPriority {
+    background-color: #F4A571;
+}
+
+#tasksList > li.highPriority > .taskText.done {
+    color: #C3865B;
+}
+
+#tasksList > li > div.buttonsBar {
+    position: absolute;
+    background-color: #fcf9a2;
+    z-index: 2;
+    height: 35px;
+    border-radius: 0px;
+    box-shadow: 0px 2px 10px #5F5F5F;
+    display: none;
+    right: 2px;
+}
+
+#tasksList > li:hover > div.buttonsBar {
+	display: block;
+}
+
+#tasksList > li > div.buttonsBar input[type="checkbox"] {
+	width: 18px;
+    height: 18px;
+    margin-top: 9px;
+    float: left;
+}
+
+#tasksList > li > div.buttonsBar .deleteBtn {
+	width: 18px;
+    top: 11px;
+    float: left;
+    position: relative;
+    height: 18px;
+    background-size: 14px;
+    background-repeat: no-repeat;
+    background-image: url('../img/delete_btn.png');
+    opacity: 0.2;
+}
+
+#tasksList > li > div.buttonsBar .deleteBtn:hover {
+	opacity: 1;
+}
+
+#tasksList > li > div.buttonsBar .priorityBtn {
+	width: 18px;
+    top: 11px;
+    float: left;
+    position: relative;
+    height: 18px;
+    background-size: 16px;
+    background-repeat: no-repeat;
+    background-image: url('../img/high_priority.png');
+    opacity: 0.2;
+}
+
+#tasksList > li > div.buttonsBar .priorityBtn:hover {
+	opacity: 1;
+}
+
+#tasksList > li > .taskText {
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    margin-top: 5px;
+    background-color: transparent;
+    border: 0;
+}
+
+#tasksList > li > .taskText.done {
+	color: #C2BA81;
+    text-decoration: line-through;
+}
+
+#tasksList li div.handle {
+    width: 22px;
+    height: 33px;
+    background-image: url('../img/handle.png');
+    background-repeat: no-repeat;
+    background-position-y: 7px;
+    margin-top: 1px;
+    margin-left: -3px;
+    float: left;
+}
